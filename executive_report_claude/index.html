@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>答えるAIから、仕事を進めるAIへ</title>
+<meta name="description" content="製造業の経営層向けに、Claudeと生成AIの役割の変化、SaaSをめぐる議論、自社PoCで確認すべき価値とリスクを整理したブリーフィング。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-title" href="#top">Executive Briefing <span>生成AIの役割の変化</span></a>
+    <nav class="chapnav" aria-label="章の移動">
+      <ol>
+        <li><a href="#ch01" data-nav="ch01"><b>01</b>答えるから進めるへ</a></li>
+        <li><a href="#ch02" data-nav="ch02"><b>02</b>Claudeとは</a></li>
+        <li><a href="#ch03" data-nav="ch03"><b>03</b>3年の変化</a></li>
+        <li><a href="#ch04" data-nav="ch04"><b>04</b>任せられる仕事</a></li>
+        <li><a href="#ch05" data-nav="ch05"><b>05</b>SaaSの議論</a></li>
+        <li><a href="#ch06" data-nav="ch06"><b>06</b>製造業への影響</a></li>
+        <li><a href="#ch07" data-nav="ch07"><b>07</b>試す価値とリスク</a></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+</header>
+
+<main id="top">
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="wrap cover-grid">
+    <div class="cover-main">
+      <p class="eyebrow">経営層向けブリーフィング　2026年9月</p>
+      <h1>答えるAIから、<br>仕事を進めるAIへ</h1>
+      <p class="cover-sub">Claudeと生成AIの変化は、製造業の仕事に何をもたらすか</p>
+    </div>
+    <aside class="cover-summary" aria-label="この資料の要点">
+      <p class="label">この資料の要点</p>
+      <ol>
+        <li><span>1</span><p>生成AIは「質問に答える道具」から、<strong>目的を渡すと複数の工程を進める存在</strong>へ変わりつつある。</p></li>
+        <li><span>2</span><p>その結果、<strong>業務システムを操作するのが人かAIか</strong>が変わる可能性がある。「SaaS is dead」はこの変化を指す言葉として読むのが適切。</p></li>
+        <li><span>3</span><p>効果もリスクも、机上では判断しきれない。<strong>管理された範囲の実業務PoC</strong>で両方を確かめる価値がある。</p></li>
+      </ol>
+    </aside>
+  </div>
+  <div class="wrap">
+    <p class="cover-reading">読了目安 約10分　／　全7章　／　各章は1枚のスライドとしても使えます</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section class="chapter" id="ch01" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 01</p>
+      <h2>生成AIは「答える」から<br>「仕事を進める」へ</h2>
+      <p class="lede">2023年頃の生成AIは、聞かれたことに答える道具でした。いまは、仕事の目的を伝えると、情報集めから成果物づくりまでの複数の工程をAIが自分で進める段階に入っています。</p>
+    </header>
+
+    <figure class="fig reveal">
+      <div class="ba">
+        <div class="ba-col ba-before">
+          <p class="ba-tag">BEFORE <span>2023年頃</span></p>
+          <div class="vflow">
+            <div class="node node-person">人</div>
+            <div class="varrow"><span>質問</span></div>
+            <div class="node node-ai-muted">AI</div>
+            <div class="varrow"><span>回答</span></div>
+            <div class="node node-out-muted">文章がひとつ返ってくる</div>
+          </div>
+          <ul class="asks">
+            <li>「要約して」</li>
+            <li>「メールを書いて」</li>
+            <li>「この意味を教えて」</li>
+          </ul>
+          <p class="ba-note">1回の問いに、1回の答え。<br>仕事を前に進めるのは、人。</p>
+        </div>
+
+        <div class="ba-divider" aria-hidden="true"><span>→</span></div>
+
+        <div class="ba-col ba-now">
+          <p class="ba-tag ba-tag-accent">NOW / NEXT <span>現在〜これから</span></p>
+          <div class="vflow">
+            <div class="node node-person">人</div>
+            <div class="varrow varrow-accent"><span>「この仕事を終わらせて」</span></div>
+            <div class="node node-ai">AI</div>
+          </div>
+          <ol class="chain" aria-label="AIが自分で進める工程">
+            <li><i>1</i>情報を探す</li>
+            <li><i>2</i>ファイルを読む</li>
+            <li><i>3</i>分析する</li>
+            <li><i>4</i>ツールを使う</li>
+            <li><i>5</i>成果物を作る</li>
+          </ol>
+          <div class="vflow">
+            <div class="varrow varrow-accent varrow-short" aria-hidden="true"></div>
+            <div class="node node-out">レポート・表・資料</div>
+            <div class="varrow"><span>確認・判断</span></div>
+            <div class="node node-person">人</div>
+          </div>
+          <p class="ba-note">目的を渡すと、AIが複数の工程を進める。<br>人は、確認と判断に回る。</p>
+        </div>
+      </div>
+      <figcaption><span>図1</span>生成AIの使われ方の変化（概念図）</figcaption>
+    </figure>
+
+    <p class="statement reveal">今日の話は、<br class="sp">新しいチャットボットの話ではない。</p>
+
+    <p class="source">Source: <a href="https://www.anthropic.com/news/introducing-claude" target="_blank" rel="noopener">Anthropic「Introducing Claude」(2023)</a>／<a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude「Claude Cowork and chat are now one Claude」(2026)</a></p>
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section class="chapter" id="ch02" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 02</p>
+      <h2>Claudeとは何か</h2>
+      <p class="lede">Claude（クロード）は、米国のAnthropic（アンソロピック）が開発している生成AIです。普段の言葉で依頼すると、読む・調べる・考える・作るといった知的作業を担います。</p>
+    </header>
+
+    <figure class="fig reveal">
+      <div class="origin">
+        <div class="origin-node">
+          <p class="origin-kicker">開発元</p>
+          <p class="origin-name">Anthropic</p>
+          <p class="origin-desc">AIの安全性と研究を掲げる企業。<br>公益目的を定款に持つ<br>Public Benefit Corporation。</p>
+        </div>
+        <div class="harrow"><span>開発</span></div>
+        <div class="origin-node origin-core">
+          <p class="origin-kicker">生成AI・AIアシスタント</p>
+          <p class="origin-name">Claude</p>
+          <ul class="verbs">
+            <li>読む</li><li>調べる</li><li>考える</li><li>分析する</li><li>文章・資料を作る</li><li>複数工程の仕事を進める</li>
+          </ul>
+        </div>
+        <div class="harrow"><span>利用</span></div>
+        <div class="origin-node">
+          <p class="origin-kicker">使う場所</p>
+          <p class="origin-name">仕事</p>
+          <p class="origin-desc">調査、分析、報告書、表計算、<br>プレゼン資料、社内資料の整理 など。</p>
+        </div>
+      </div>
+      <figcaption><span>図2</span>Anthropic・Claude・仕事の関係</figcaption>
+    </figure>
+
+    <div class="aside-grid reveal">
+      <div>
+        <p class="label">依頼のしかた</p>
+        <p>専用の操作や命令文は不要です。「先月の品質データを整理して、上位の不具合を3つ挙げて」のように、人に頼むのと同じ言葉で依頼できます。</p>
+      </div>
+      <div>
+        <p class="label">名前がいくつもある理由</p>
+        <p>「Claude Code」「Cowork」などは、同じClaudeを使うための入口の名前です。Claude Codeはソフトウェア開発者向け、Coworkは開発者以外が仕事を任せるための機能として始まり、2026年9月からは通常の会話画面に統合されつつあります。</p>
+      </div>
+    </div>
+
+    <p class="source">Source: <a href="https://www.anthropic.com/company" target="_blank" rel="noopener">Anthropic「Company」</a>／<a href="https://www.anthropic.com/news/claude-3-7-sonnet" target="_blank" rel="noopener">Anthropic「Claude 3.7 Sonnet and Claude Code」(2025)</a>／<a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude「Claude Cowork and chat are now one Claude」(2026)</a></p>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section class="chapter" id="ch03" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 03</p>
+      <h2>Claudeは3年でどう変わったか</h2>
+      <p class="lede">製品名の変遷ではなく、「何を任せられるようになったか」で見ると、変化の方向がはっきりします。</p>
+    </header>
+
+    <figure class="fig fig-plain reveal">
+      <ol class="timeline" id="timeline">
+        <li class="tl-item">
+          <p class="tl-year">2023</p>
+          <p class="tl-head">対話する</p>
+          <ul class="tl-can"><li>質問に答える</li><li>要約する</li><li>文書を作る</li></ul>
+          <div class="tl-events">
+            <p><time>2023.03</time>Claude一般提供開始。要約、検索、文章作成、質疑応答など。</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <p class="tl-year">2024</p>
+          <p class="tl-head">大量・複雑な情報を理解する</p>
+          <ul class="tl-can"><li>長い資料</li><li>画像・図表</li><li>複数の資料</li><li>外部ツール</li></ul>
+          <div class="tl-events">
+            <p><time>2024.03</time>Claude 3。長文に加え、写真・グラフ・技術図面なども読み取れるように。</p>
+            <p><time>2024.10</time>画面を見てクリックや入力をする機能を実験的に公開。</p>
+          </div>
+        </li>
+        <li class="tl-item">
+          <p class="tl-year">2025</p>
+          <p class="tl-head">自分で作業を進める</p>
+          <ul class="tl-can"><li>ファイル</li><li>Web</li><li>PC上の作業</li><li>複数ステップ</li></ul>
+          <div class="tl-events">
+            <p><time>2025.02</time>Claude Code（開発者向け）。自分でファイルを調べ、編集し、確認まで進める最初のツール。</p>
+            <p><time>2025.05</time>Claude 4。数時間にわたる連続作業に対応。</p>
+          </div>
+        </li>
+        <li class="tl-item tl-now">
+          <p class="tl-year">2026</p>
+          <p class="tl-head">仕事を任せる</p>
+          <ul class="tl-can"><li>調査・分析</li><li>文書</li><li>表計算</li><li>プレゼン</li><li>複数工程の業務</li></ul>
+          <div class="tl-events">
+            <p><time>2026.01</time>Cowork（開発者以外向け）。指定したフォルダの資料を読み、編集し、新しく作る。</p>
+            <p><time>2026.09</time>会話とCoworkを統合。レポート、表、プレゼンを会話から直接依頼できる形へ。</p>
+          </div>
+        </li>
+      </ol>
+      <figcaption><span>図3</span>Claudeに任せられる仕事の広がり（Anthropic公式発表をもとに作成）</figcaption>
+    </figure>
+
+    <p class="statement reveal">AIが賢くなっただけではない。<br><em>何を任せられるか</em>が変わった。</p>
+
+    <p class="source">Source: <a href="https://www.anthropic.com/news/introducing-claude" target="_blank" rel="noopener">Introducing Claude (2023.03)</a>／<a href="https://www.anthropic.com/news/claude-3-family" target="_blank" rel="noopener">Claude 3 (2024.03)</a>／<a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noopener">Computer use (2024.10)</a>／<a href="https://www.anthropic.com/news/claude-3-7-sonnet" target="_blank" rel="noopener">Claude Code (2025.02)</a>／<a href="https://www.anthropic.com/news/claude-4" target="_blank" rel="noopener">Claude 4 (2025.05)</a>／<a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener">Cowork (2026.01)</a>／<a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">One Claude (2026.09)</a></p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section class="chapter" id="ch04" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 04</p>
+      <h2>今のClaudeには、<br>何を任せられるのか</h2>
+      <p class="lede">チャット画面で文章を作るだけの道具ではありません。社内の資料やデータを受け取り、いくつもの工程を経て、そのまま使える成果物にして返します。</p>
+    </header>
+
+    <figure class="fig reveal">
+      <div class="io">
+        <div class="io-col">
+          <p class="io-tag">INPUT　渡すもの</p>
+          <ul class="io-list">
+            <li>PDF</li><li>Excel</li><li>社内資料</li><li>Web上の情報</li><li>メール・文章</li><li>業務データ</li>
+          </ul>
+        </div>
+        <div class="io-arrow" aria-hidden="true"></div>
+        <div class="io-core">
+          <p class="io-core-name">Claude</p>
+          <ol class="io-steps">
+            <li><i>1</i>読む</li>
+            <li><i>2</i>整理する</li>
+            <li><i>3</i>調べる</li>
+            <li><i>4</i>比較する</li>
+            <li><i>5</i>分析する</li>
+            <li><i>6</i>作る</li>
+            <li><i>7</i>必要なら次の工程へ進む</li>
+          </ol>
+          <p class="io-core-note">操作の前に人へ確認を求めるのが標準設定</p>
+        </div>
+        <div class="io-arrow" aria-hidden="true"></div>
+        <div class="io-col">
+          <p class="io-tag io-tag-accent">OUTPUT　返ってくるもの</p>
+          <ul class="io-list io-list-out">
+            <li>レポート</li><li>表</li><li>グラフ</li><li>プレゼン資料</li><li>分析結果</li><li>整理された情報</li>
+          </ul>
+        </div>
+      </div>
+      <figcaption><span>図4</span>資料を渡し、成果物を受け取る流れ</figcaption>
+    </figure>
+
+    <div class="examples reveal">
+      <p class="label">Anthropicが紹介している使い方の例</p>
+      <ul>
+        <li>定期レポートを作成し、前回との差異を指摘する</li>
+        <li>複数の出所の表計算データを突き合わせる</li>
+        <li>社内の基準に沿って契約書をまとめて確認する</li>
+        <li>「いつもの形式で書いて、漏れを指摘し、要点を5枚のスライドに」を一度の依頼で進める</li>
+      </ul>
+    </div>
+
+    <p class="source">Source: <a href="https://claude.com/product/cowork" target="_blank" rel="noopener">Claude「Cowork」製品ページ</a>／<a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude「Claude Cowork and chat are now one Claude」(2026.09)</a>／<a href="https://www.anthropic.com/news/claude-opus-5-5" target="_blank" rel="noopener">Anthropic「Introducing Claude Opus 5.5」(2026.09)</a></p>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section class="chapter chapter-key" id="ch05" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 05</p>
+      <h2>「SaaS is dead」が<br>示している変化</h2>
+      <p class="lede">SaaSとは、ERPやメール、BIのようにインターネット経由で使う業務ソフトのことです。議論の核心は、これらが消えるかどうかではありません。</p>
+    </header>
+
+    <figure class="fig reveal">
+      <div class="saas">
+        <div class="saas-panel">
+          <p class="ba-tag">これまで</p>
+          <svg viewBox="0 0 560 420" role="img" aria-labelledby="saas-a-t">
+            <title id="saas-a-t">人がERP、Excel、メール、BI、文書管理、業務システムのそれぞれを直接操作する図</title>
+            <g class="s-lines">
+              <line x1="280" y1="96" x2="53" y2="316"/>
+              <line x1="280" y1="96" x2="144" y2="316"/>
+              <line x1="280" y1="96" x2="235" y2="316"/>
+              <line x1="280" y1="96" x2="326" y2="316"/>
+              <line x1="280" y1="96" x2="417" y2="316"/>
+              <line x1="280" y1="96" x2="508" y2="316"/>
+            </g>
+            <g class="s-person">
+              <circle cx="280" cy="40" r="15"/>
+              <path d="M250 88 Q250 62 280 62 Q310 62 310 88 Z"/>
+            </g>
+            <text class="s-label-strong" x="325" y="60">人</text>
+            <g class="s-box">
+              <rect x="12" y="316" width="82" height="50"/><text x="53" y="346">ERP</text>
+              <rect x="103" y="316" width="82" height="50"/><text x="144" y="346">Excel</text>
+              <rect x="194" y="316" width="82" height="50"/><text x="235" y="346">メール</text>
+              <rect x="285" y="316" width="82" height="50"/><text x="326" y="346">BI</text>
+              <rect x="376" y="316" width="82" height="50"/><text x="417" y="346">文書管理</text>
+              <rect x="467" y="316" width="82" height="50"/><text x="508" y="346">業務系</text>
+            </g>
+            <rect class="s-note-bg" x="150" y="190" width="260" height="54"/>
+            <text class="s-note" x="280" y="212">画面ごとに操作方法を覚え、</text>
+            <text class="s-note" x="280" y="236">システム間の転記も人が行う</text>
+            <text class="s-cap" x="280" y="400">業務システム（変わらない）</text>
+          </svg>
+          <p class="saas-cap">人が、それぞれの画面を操作して業務を進める</p>
+        </div>
+
+        <div class="saas-panel saas-panel-next">
+          <p class="ba-tag ba-tag-accent">これから</p>
+          <svg viewBox="0 0 560 420" role="img" aria-labelledby="saas-b-t">
+            <title id="saas-b-t">人が目的をAIに伝え、AIがERP、Excel、メール、BI、文書管理、業務システムを利用する図</title>
+            <g class="s-person">
+              <circle cx="280" cy="30" r="15"/>
+              <path d="M250 78 Q250 52 280 52 Q310 52 310 78 Z"/>
+            </g>
+            <text class="s-label-strong" x="325" y="50">人</text>
+            <line class="s-main" x1="280" y1="86" x2="280" y2="150"/>
+            <path class="s-head" d="M273 142 L280 154 L287 142 Z"/>
+            <text class="s-note s-note-left" x="296" y="124">目的・指示</text>
+            <rect class="s-ai" x="210" y="158" width="140" height="52"/>
+            <text class="s-ai-t" x="280" y="191">AI</text>
+            <g class="s-lines s-lines-ai">
+              <line x1="280" y1="210" x2="53" y2="316"/>
+              <line x1="280" y1="210" x2="144" y2="316"/>
+              <line x1="280" y1="210" x2="235" y2="316"/>
+              <line x1="280" y1="210" x2="326" y2="316"/>
+              <line x1="280" y1="210" x2="417" y2="316"/>
+              <line x1="280" y1="210" x2="508" y2="316"/>
+            </g>
+            <g class="s-box">
+              <rect x="12" y="316" width="82" height="50"/><text x="53" y="346">ERP</text>
+              <rect x="103" y="316" width="82" height="50"/><text x="144" y="346">Excel</text>
+              <rect x="194" y="316" width="82" height="50"/><text x="235" y="346">メール</text>
+              <rect x="285" y="316" width="82" height="50"/><text x="326" y="346">BI</text>
+              <rect x="376" y="316" width="82" height="50"/><text x="417" y="346">文書管理</text>
+              <rect x="467" y="316" width="82" height="50"/><text x="508" y="346">業務系</text>
+            </g>
+            <text class="s-cap" x="280" y="400">業務システム（変わらない）</text>
+          </svg>
+          <p class="saas-cap">AIが、必要なシステムを使って仕事を進める</p>
+        </div>
+      </div>
+      <figcaption><span>図5</span>業務システムと人・AIの関係（概念図）。システム自体は両側で同じ</figcaption>
+    </figure>
+
+    <p class="statement statement-key reveal">変わるのは「SaaSがあるか」ではなく、<br><em>「誰がSaaSを操作するか」</em>。</p>
+
+    <div class="aside-grid aside-grid-3 reveal">
+      <div>
+        <p class="label">経営にとっての意味 1</p>
+        <p>システムごとに操作を覚える負担や、システム間の転記・集計といった「つなぎの作業」が、AI側へ移る可能性がある。</p>
+      </div>
+      <div>
+        <p class="label">経営にとっての意味 2</p>
+        <p>ERPや文書管理などの基盤は引き続き必要。むしろ、データの整備状況とアクセス権限の設計が、AI活用の成否を左右する。</p>
+      </div>
+      <div>
+        <p class="label">経営にとっての意味 3</p>
+        <p>AIがシステムを操作するなら、「AIに何をどこまで許すか」は情報システム部門だけでなく経営が決めるべき論点になる。</p>
+      </div>
+    </div>
+
+    <div class="origin-note reveal">
+      <p class="label">この言葉の扱いについて</p>
+      <p>「SaaS is dead」は、報道や論評の見出しで広まった言い回しです。特定の人物の発言をそのまま訳したものではありません。よく引き合いに出されるのは、Microsoft CEOのサティア・ナデラ氏が2024年12月のポッドキャスト（BG2）で、業務アプリケーションの処理の中心はAIエージェントの層へ移っていく、という趣旨を語ったことです。また2026年1月末にAnthropicがCowork向けの業務別拡張機能を公開した直後、2月初めにかけてソフトウェア企業の株価が大きく下落したと報じられ、議論が広がりました。いずれも、SaaSがすぐに消えるという意味ではなく、業務ソフトの使われ方が変わるかどうかをめぐる議論です。</p>
+    </div>
+
+    <p class="source">Source: <a href="https://creators.spotify.com/pod/profile/bg2pod/episodes/Satya-Nadella--BG2-w-Bill-Gurley--Brad-Gerstner-e2s7pnc" target="_blank" rel="noopener">BG2 Podcast「Satya Nadella | BG2 w/ Bill Gurley &amp; Brad Gerstner」(2024.12)</a>／<a href="https://claude.com/blog/cowork-plugins" target="_blank" rel="noopener">Claude「Customize Cowork with plugins」(2026.01)</a>／<a href="https://www.cnbc.com/2026/02/06/ai-anthropic-tools-saas-software-stocks-selloff.html" target="_blank" rel="noopener">CNBC「AI fears pummel software stocks」(2026.02.06)</a></p>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section class="chapter" id="ch06" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 06</p>
+      <h2>製造業の仕事は<br>どう変わり得るか</h2>
+      <p class="lede">部門ごとに、情報をAIが処理し、判断を人が担う分担を想定しました。いずれも可能性を示す例で、効果は実業務で確かめる必要があります。</p>
+    </header>
+
+    <figure class="fig reveal">
+      <div class="lanes" role="table" aria-label="部門ごとの人とAIの分担">
+        <div class="lane lane-head" role="row">
+          <span role="columnheader">領域</span>
+          <span role="columnheader">扱う情報</span>
+          <span role="columnheader" class="lh-ai">AIが担う</span>
+          <span role="columnheader" class="lh-human">人が担う</span>
+        </div>
+        <div class="lane" role="row">
+          <p class="lane-name" role="rowheader">生産管理</p>
+          <ul class="lane-in" role="cell"><li>生産実績</li><li>在庫</li><li>生産計画</li><li>納期</li></ul>
+          <ul class="lane-ai" role="cell"><li>情報の整理</li><li>計画と実績の差異検出</li><li>状況の説明文</li></ul>
+          <ul class="lane-human" role="cell"><li>判断</li><li>部門間の調整</li><li>意思決定</li></ul>
+        </div>
+        <div class="lane" role="row">
+          <p class="lane-name" role="rowheader">製造技術</p>
+          <ul class="lane-in" role="cell"><li>設備ログ</li><li>品質データ</li><li>技術資料</li></ul>
+          <ul class="lane-ai" role="cell"><li>集計</li><li>グラフ化</li><li>傾向の分析</li><li>レポート作成</li></ul>
+          <ul class="lane-human" role="cell"><li>原因の仮説</li><li>改善の判断</li><li>技術判断</li></ul>
+        </div>
+        <div class="lane" role="row">
+          <p class="lane-name" role="rowheader">品質保証</p>
+          <ul class="lane-in" role="cell"><li>検査結果</li><li>規格</li><li>過去のトラブル</li><li>変更履歴</li></ul>
+          <ul class="lane-ai" role="cell"><li>資料の横断確認</li><li>過去事例との比較</li><li>論点の整理</li><li>報告書の下書き</li></ul>
+          <ul class="lane-human" role="cell"><li>品質判断</li><li>承認</li><li>対策の決定</li></ul>
+        </div>
+        <div class="lane" role="row">
+          <p class="lane-name" role="rowheader">管理・企画</p>
+          <ul class="lane-in" role="cell"><li>メール</li><li>会議記録</li><li>Excel</li><li>PowerPoint</li><li>各種資料</li></ul>
+          <ul class="lane-ai" role="cell"><li>情報収集</li><li>要約</li><li>分析</li><li>資料化</li></ul>
+          <ul class="lane-human" role="cell"><li>意思決定</li><li>優先順位づけ</li><li>関係者との調整</li></ul>
+        </div>
+      </div>
+      <figcaption><span>図6</span>製造業4領域における分担の想定例（本資料による例示）</figcaption>
+    </figure>
+
+    <div class="shift reveal">
+      <p class="shift-lead">人を置き換える、という単純な話ではない。</p>
+      <div class="shift-row">
+        <div class="shift-from">
+          <p class="label">AI側へ移す作業</p>
+          <ul><li>情報を探す</li><li>転記する</li><li>集計する</li><li>資料にする</li></ul>
+        </div>
+        <div class="shift-arrow" aria-hidden="true"></div>
+        <div class="shift-to">
+          <p class="label">人が集中する仕事</p>
+          <ul><li>判断</li><li>承認</li><li>改善</li></ul>
+        </div>
+      </div>
+      <p class="shift-foot">問われているのは、この分担の変化が自社の業務で成り立つかどうか。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section class="chapter" id="ch07" data-chapter>
+  <div class="wrap">
+    <header class="ch-head">
+      <p class="ch-no">Chapter 07</p>
+      <h2>では、自社でClaudeを<br>試す価値はあるか</h2>
+      <p class="lede">仕事を任せられるAIは、効果が大きい分、誤りや誤操作が及ぼす影響も大きくなります。期待と確認事項を並べて見ます。</p>
+    </header>
+
+    <figure class="fig fig-plain reveal">
+      <div class="vr">
+        <div class="vr-col vr-value">
+          <p class="vr-tag">VALUE　期待できる価値</p>
+          <dl>
+            <div><dt>知的作業の生産性向上</dt><dd>調査・整理・下書きにかかる時間を短縮する。</dd></div>
+            <div><dt>情報探索時間の削減</dt><dd>散らばった資料やデータを横断して探す手間を減らす。</dd></div>
+            <div><dt>分析・資料作成の高速化</dt><dd>集計からグラフ、報告書の形まで一続きで作る。</dd></div>
+            <div><dt>専門家自身による業務改善</dt><dd>現場の担当者が、自分の言葉で改善を試せる。</dd></div>
+            <div><dt>小さな改善を素早く試せる</dt><dd>システム開発を待たずに、手順を試して直せる。</dd></div>
+            <div><dt>部門固有業務への適用</dt><dd>品質・生産・技術など、各部門の資料に合わせて使える。</dd></div>
+          </dl>
+        </div>
+        <div class="vr-col vr-risk">
+          <p class="vr-tag">RISK / CHECK　確認すべきこと</p>
+          <dl>
+            <div><dt>誤回答</dt><dd>もっともらしい誤りを含むことがある。</dd></div>
+            <div><dt>誤った判断</dt><dd>前提の取り違えのまま作業が進む可能性がある。</dd></div>
+            <div><dt>機密情報の扱い</dt><dd>どの情報をAIに渡してよいか、区分が必要。</dd></div>
+            <div><dt>アクセス権限</dt><dd>AIが触れられるフォルダ・システムを限定する。</dd></div>
+            <div><dt>AIによる誤操作</dt><dd>削除・送信・公開など戻せない操作への備え。</dd></div>
+            <div><dt>外部情報によるなりすまし指示</dt><dd>Webページやメールに隠れた悪意ある指示にAIが従う攻撃（Prompt Injection）。</dd></div>
+            <div><dt>人による確認・承認の設計</dt><dd>どこで人が確かめ、誰が承認するかを決める。</dd></div>
+            <div><dt>利用ルール・ガバナンス</dt><dd>利用範囲、記録、責任の所在を定める。</dd></div>
+          </dl>
+        </div>
+      </div>
+      <figcaption><span>図7</span>期待できる価値と、導入前に確認すべきこと</figcaption>
+    </figure>
+
+    <div class="aside-grid reveal">
+      <div>
+        <p class="label">Anthropic自身が示している注意点</p>
+        <p>PC操作機能の公開時には「まだ実験的で、誤りもある」とし、低リスクの作業から始めるよう推奨しています。AIが外部の情報を読み、かつ実際に操作できるとき、なりすまし指示の危険が生じるとも説明しています。</p>
+      </div>
+      <div>
+        <p class="label">製品側の備え</p>
+        <p>操作前に人へ確認を求める設定が標準で、ファイルの完全な削除には明示的な許可が必要です。一方でAnthropicは、なりすまし指示への対策を「継続中の研究課題」と位置づけています。</p>
+      </div>
+    </div>
+
+    <div class="conclusion reveal">
+      <p class="conclusion-label">結論</p>
+      <p class="conclusion-text">導入する／しないを机上で決めるのではなく、<br><em>管理された範囲の実業務PoC</em>で、<br>価値とリスクの両方を確認する。</p>
+    </div>
+
+    <figure class="fig fig-plain reveal">
+      <ol class="poc">
+        <li><i>1</i><p class="poc-h">業務を選ぶ</p><p>効果を測りやすく、誤りの影響が小さい業務を1〜2件。</p></li>
+        <li><i>2</i><p class="poc-h">範囲を決める</p><p>扱うデータ、接続するシステム、AIの権限を限定する。</p></li>
+        <li><i>3</i><p class="poc-h">人の確認を組み込む</p><p>AIの成果物と操作は、担当者が確認・承認してから使う。</p></li>
+        <li><i>4</i><p class="poc-h">両方を測る</p><p>時間短縮・品質と、誤り・ヒヤリハット・運用負荷を記録する。</p></li>
+      </ol>
+      <figcaption><span>図8</span>管理された範囲でのPoCの進め方（例）</figcaption>
+    </figure>
+
+    <div class="decide reveal">
+      <p class="label">経営としてご判断いただきたいこと</p>
+      <ul>
+        <li>実業務PoCの実施可否</li>
+        <li>対象とする部門・業務</li>
+        <li>期間と評価基準（価値・リスクの双方）</li>
+      </ul>
+    </div>
+
+    <p class="source">Source: <a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noopener">Anthropic「Computer use」(2024.10)</a>／<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic「Building effective agents」(2024.12)</a>／<a href="https://www.anthropic.com/research/prompt-injection-defenses" target="_blank" rel="noopener">Anthropic「Mitigating the risk of prompt injections in browser use」</a>／<a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely" target="_blank" rel="noopener">Claude Help Center「Use Claude Cowork safely」</a>／<a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude「One Claude」(2026.09)</a></p>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <h2>Sources</h2>
+    <p class="sources-note">2026年9月28日時点で確認。Anthropic／Claudeの公式情報を一次情報とし、発言者本人の媒体、報道の順に参照しています。第6章の業務例と第7章のPoC手順は、本資料による例示です。</p>
+    <div class="sources-grid">
+      <div>
+        <p class="label">Anthropic / Claude 公式</p>
+        <ol>
+          <li><a href="https://www.anthropic.com/company" target="_blank" rel="noopener">Anthropic — Company</a></li>
+          <li><a href="https://www.anthropic.com/news/introducing-claude" target="_blank" rel="noopener">Introducing Claude（2023年3月）</a></li>
+          <li><a href="https://www.anthropic.com/news/claude-3-family" target="_blank" rel="noopener">Introducing the next generation of Claude（Claude 3、2024年3月）</a></li>
+          <li><a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noopener">Introducing computer use（2024年10月）</a></li>
+          <li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building effective agents（2024年12月）</a></li>
+          <li><a href="https://www.anthropic.com/news/claude-3-7-sonnet" target="_blank" rel="noopener">Claude 3.7 Sonnet and Claude Code（2025年2月）</a></li>
+          <li><a href="https://www.anthropic.com/news/claude-4" target="_blank" rel="noopener">Introducing Claude 4（2025年5月）</a></li>
+          <li><a href="https://www.anthropic.com/research/prompt-injection-defenses" target="_blank" rel="noopener">Mitigating the risk of prompt injections in browser use</a></li>
+          <li><a href="https://claude.com/blog/cowork-research-preview" target="_blank" rel="noopener">Introducing Cowork（2026年1月）</a></li>
+          <li><a href="https://claude.com/blog/cowork-plugins" target="_blank" rel="noopener">Customize Cowork with plugins（2026年1月）</a></li>
+          <li><a href="https://claude.com/product/cowork" target="_blank" rel="noopener">Claude Cowork 製品ページ</a></li>
+          <li><a href="https://claude.com/blog/cowork-is-now-claude" target="_blank" rel="noopener">Claude Cowork and chat are now one Claude（2026年9月）</a></li>
+          <li><a href="https://www.anthropic.com/news/claude-opus-5-5" target="_blank" rel="noopener">Introducing Claude Opus 5.5（2026年9月）</a></li>
+          <li><a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely" target="_blank" rel="noopener">Use Claude Cowork safely（Claude Help Center）</a></li>
+        </ol>
+      </div>
+      <div>
+        <p class="label">発言者本人の媒体</p>
+        <ol start="15">
+          <li><a href="https://creators.spotify.com/pod/profile/bg2pod/episodes/Satya-Nadella--BG2-w-Bill-Gurley--Brad-Gerstner-e2s7pnc" target="_blank" rel="noopener">BG2 Podcast — Satya Nadella | BG2 w/ Bill Gurley &amp; Brad Gerstner（2024年12月）</a></li>
+        </ol>
+        <p class="label label-gap">報道</p>
+        <ol start="16">
+          <li><a href="https://www.cnbc.com/2026/02/06/ai-anthropic-tools-saas-software-stocks-selloff.html" target="_blank" rel="noopener">CNBC — AI fears pummel software stocks: Is it 'illogical' panic or a SaaS apocalypse?（2026年2月6日）</a></li>
+          <li><a href="https://techcrunch.com/2026/09/16/anthropic-merges-claude-chat-and-cowork-in-one-interface/" target="_blank" rel="noopener">TechCrunch — Anthropic merges Claude chat and Cowork in one interface（2026年9月16日）</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>本資料は社内検討用の説明資料です。製品の機能・提供条件は変更される場合があります。導入検討時は最新の公式情報と契約条件をご確認ください。</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
